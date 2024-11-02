@@ -123,7 +123,7 @@ the goal
 
 ![xor](4-c2-capture_blur.png)
 
-We can answer for all answer except the flag. 
+We can answer for all questions except the flag. 
 
 ## find the flag
 
