@@ -19,6 +19,7 @@ The website is a php based solution where youtube videos linked in iframes are d
 #### Step 1 - Enumeration
 
 Two parameters can be modified on the home page
+
 http://10.10.83.116/?search=
 
 http://10.10.83.116/?page=
